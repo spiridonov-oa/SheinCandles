@@ -241,7 +241,7 @@ class vmJsApi{
 		}
 
 		if(VmConfig::get('google_jquery',true)){
-			if(JVM_VERSION<3) vmJsApi::js('jquery','//ajax.googleapis.com/ajax/libs/jquery/1.8.1','',true);
+			if(JVM_VERSION<3) vmJsApi::js('jquery','//ajax.googleapis.com/ajax/libs/jquery/1.9.1','',true);
 			//$document->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js');
 			if (!$isSite) {
 				vmJsApi::js ('jquery-ui', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23', '', true);

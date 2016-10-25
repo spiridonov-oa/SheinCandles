@@ -2484,10 +2484,7 @@ a:focus {
 #benefits .benefits-content {
     position: absolute;
     top: 40px;
-    background: #FAFAFA;
     width: 1200px;
-    left: -2500px;
-    padding: 40px 2500px 40px 2500px;
 }
 
 #benefits ul.benefits-content li {

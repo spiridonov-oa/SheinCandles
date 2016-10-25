@@ -94,14 +94,11 @@ class JDocumentRendererHead extends JDocumentRenderer
 
 		// Don't add empty generators
 		$generator = $document->getGenerator();
-		if ($generator)
-		{
-			$buffer .= $tab . '<meta name="generator" content="' . htmlspecialchars($generator) . '" />' . $lnEnd;
-		}
-                /**-** Присвоение значения если страница Главная*/
-                $homep =(JURI::getInstance()->toString()==JURI::base());
-                //**+**/
-                if ($homep){$hometitle = "декоративные, свадебные, парафиновые, восковые,";}else{$hometitle = "";}
+
+		/**-** Присвоение значения если страница Главная*/
+		$homep =(JURI::getInstance()->toString()==JURI::base());
+		//**+**/
+		if ($homep){$hometitle = "декоративные, свадебные, парафиновые, восковые. Свечи от производителя";}else{$hometitle = "";}
 		$buffer .= $tab . '<title>' . htmlspecialchars($document->getTitle(), ENT_COMPAT, 'UTF-8') . ', Украина, изготовление свечей, '.$hometitle.' оптом</title>' . $lnEnd;
 
 		// Generate link declarations
