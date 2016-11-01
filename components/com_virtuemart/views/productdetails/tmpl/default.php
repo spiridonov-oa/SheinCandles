@@ -40,8 +40,8 @@ $MailLink = 'index.php?option=com_virtuemart&view=productdetails&task=recommend&
 $boxFuncReco = '';
 $boxFuncAsk = '';
 if(VmConfig::get('usefancy',1)){
-	vmJsApi::js( 'fancybox/jquery.fancybox-1.3.4.pack');
-	vmJsApi::css('jquery.fancybox-1.3.4');
+	vmJsApi::js( 'fancybox/jquery.fancybox.pack');
+	vmJsApi::css('jquery.fancybox');
 	if(VmConfig::get('show_emailfriend',0)){
 		$boxReco = "jQuery.fancybox({
 				href: '" . $MailLink . "',

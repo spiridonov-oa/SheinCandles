@@ -20,8 +20,8 @@ if (!empty($viewData['payment_logo_link'] )) {
 	JHTML::_('behavior.modal');
 // JHTML::_('behavior.tooltip');
 	if(VmConfig::get('usefancy',1)){
-		vmJsApi::js( 'fancybox/jquery.fancybox-1.3.4.pack');
-		vmJsApi::css('jquery.fancybox-1.3.4');
+		vmJsApi::js( 'fancybox/jquery.fancybox.pack');
+		vmJsApi::css('jquery.fancybox');
 		$box = "$.fancybox({
 				href: '" .$viewData['payment_logo_link']  . "',
 				type: 'iframe',

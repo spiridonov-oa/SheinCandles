@@ -59,7 +59,7 @@ if(typeof Virtuemart === "undefined")
                 var datas = form.serialize();
 
                 if(usefancy){
-                    $.fancybox.showActivity();
+                    $.fancybox.showLoading();
                 }
 
                 $.getJSON(vmSiteurl+'index.php?option=com_virtuemart&nosef=1&view=cart&task=addJS&format=json'+vmLang,datas,

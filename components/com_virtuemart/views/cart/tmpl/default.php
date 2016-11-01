@@ -20,8 +20,8 @@
 // Check to ensure this file is included in Joomla!
 defined ('_JEXEC') or die('Restricted access');
 if(VmConfig::get('usefancy',1)){
-	vmJsApi::js( 'fancybox/jquery.fancybox-1.3.4.pack');
-	vmJsApi::css('jquery.fancybox-1.3.4');
+	vmJsApi::js( 'fancybox/jquery.fancybox.pack');
+	vmJsApi::css('jquery.fancybox');
 	$box = "
 //<![CDATA[
 	jQuery(document).ready(function($) {

@@ -297,8 +297,8 @@ class vmJsApi{
 			$jsVars .= "Virtuemart.addtocart_popup = '".VmConfig::get('addtocart_popup',1)."' ; \n";
 			if(VmConfig::get('usefancy',1)){
 				$jsVars .= "usefancy = true;";
-				vmJsApi::js( 'fancybox/jquery.fancybox-1.3.4.pack');
-				vmJsApi::css('jquery.fancybox-1.3.4');
+				vmJsApi::js( 'fancybox/jquery.fancybox.pack');
+				vmJsApi::css('jquery.fancybox');
 			} else {//This is just there for the backward compatibility
 				$jsVars .= "vmCartText = '". addslashes( vmText::_('COM_VIRTUEMART_CART_PRODUCT_ADDED') )."' ;\n" ;
 				$jsVars .= "vmCartError = '". addslashes( vmText::_('COM_VIRTUEMART_MINICART_ERROR_JS') )."' ;\n" ;

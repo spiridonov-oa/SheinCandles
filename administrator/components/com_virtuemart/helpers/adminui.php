@@ -43,15 +43,15 @@ class AdminUIHelper {
 		$document->addStyleSheet($admin.'css/menu_images.css');
 		$document->addStyleSheet($front.'css/chosen.css');
 		$document->addStyleSheet($front.'css/vtip.css');
-		$document->addStyleSheet($front.'css/jquery.fancybox-1.3.4.css');
+		$document->addStyleSheet($front.'css/fancybox/jquery.fancybox.css');
 		$document->addStyleSheet($front.'css/ui/jquery.ui.all.css');
 		//$document->addStyleSheet($admin.'css/jqtransform.css');
 
 		//loading defaut script
 
-		$document->addScript($front.'js/fancybox/jquery.mousewheel-3.0.4.pack.js');
+		$document->addScript($front.'js/fancybox/jquery.mousewheel-3.0.6.pack.js');
 		$document->addScript($front.'js/fancybox/jquery.easing-1.3.pack.js');
-		$document->addScript($front.'js/fancybox/jquery.fancybox-1.3.4.pack.js');
+		$document->addScript($front.'js/fancybox/jquery.fancybox.pack.js');
 		$document->addScript($admin.'js/jquery.coookie.js');
 		$document->addScript($front.'js/chosen.jquery.min.js');
 		$document->addScript($admin.'js/vm2admin.js');
