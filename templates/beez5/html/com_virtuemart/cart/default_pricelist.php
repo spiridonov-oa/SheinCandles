@@ -22,157 +22,166 @@ $plugin=JPluginHelper::getPlugin('system','onepage');
 $params=new JRegistry($plugin->params);
 ?>
 <div class="billto-shipto">
-<h2><?php echo JText::_('COM_VIRTUEMART_ORDER_FORM_CART'); ?></h2>
-	<div class="width40 floatleft">
+	<div class="container">
+		<div class="row">
+			<h2 class="col-xs-12"><?php echo JText::_('COM_VIRTUEMART_ORDER_FORM_CART'); ?></h2>
+		</div>
+	</div>
+
+	<div class="container cart-container">
+		<div class="row">
+			<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
 
 		<span class="none"><span class="vmicon vm2-billto-icon"></span>
-		<?php echo JText::_('COM_VIRTUEMART_USER_FORM_BILLTO_LBL'); ?></span>
-		<div class="output-billto none">
-		<div class="clear"></div>
-		</div>
-		
-		<?php
+			<?php echo JText::_('COM_VIRTUEMART_USER_FORM_BILLTO_LBL'); ?></span>
+				<div class="output-billto none">
+					<div class="clear"></div>
+				</div>
+
+				<?php
 		if(JFactory::getUser()->get('id')==0 && VmConfig::get('oncheckout_show_register')) {
-			?>
-			<input class="inputbox" type="checkbox" name="register" id="register" value="1" onclick="toggle_register(this.checked);" <?php echo $params->get('check_register')?'checked="checked"':''; ?>/>
-			<?php echo JText::_('COM_VIRTUEMART_REGISTER'); ?>
-		<?php
+				?>
+				<input class="inputbox" type="checkbox" name="register" id="register" value="1" onclick="toggle_register(this.checked);" <?php echo $params->get('check_register')?'checked="checked"':''; ?>/>
+				<?php echo JText::_('COM_VIRTUEMART_REGISTER'); ?>
+				<?php
 		}
 		$userFields=array('agreed','name','username','password','password2');
 		echo '<div id="div_billto">';
-		echo '	<table class="adminform user-details" id="table_user" '.($params->get('check_register')?'':'style="display:none"').'>' . "\n";
-		foreach($this->helper->BTaddress["fields"] as $_field) {
-			if(!in_array($_field['name'],$userFields)) {
+				echo '	<table class="adminform user-details" id="table_user" '.($params->get('check_register')?'':'style="display:none"').'>' . "\n";
+				foreach($this->helper->BTaddress["fields"] as $_field) {
+				if(!in_array($_field['name'],$userFields)) {
 				continue;
-			}
-			if($_field['name']=='agreed') {
+				}
+				if($_field['name']=='agreed') {
 				continue;
-			}
-			echo '		<tr>' . "\n";
-		    echo '			<td class="key">' . "\n";
-		    echo '				<label class="' . $_field['name'] . '" for="' . $_field['name'] . '_field">' . "\n";
-		    echo '					' . $_field['title'] . ($_field['required'] ? ' *' : '') . "\n";
-		    echo '				</label>' . "\n";
-		    echo '			</td>' . "\n";
-		    echo '			<td>' . "\n";
-		    echo '				' . $_field['formcode'] . "\n";
-		    echo '			</td>' . "\n";
-		    echo '		</tr>' . "\n";
-		}
-		echo '	</table>' . "\n";
-		echo '	<table class="adminform user-details" id="table_billto">' . "\n";
-		foreach($this->helper->BTaddress["fields"] as $_field) {
-			if(in_array($_field['name'],$userFields)) {
+				}
+				echo '		<tr>' . "\n";
+				echo '			<td class="key">' . "\n";
+					echo '				<label class="' . $_field['name'] . '" for="' . $_field['name'] . '_field">' . "\n";
+						echo '					' . $_field['title'] . ($_field['required'] ? ' *' : '') . "\n";
+						echo '				</label>' . "\n";
+					echo '			</td>' . "\n";
+				echo '			<td>' . "\n";
+					echo '				' . $_field['formcode'] . "\n";
+					echo '			</td>' . "\n";
+				echo '		</tr>' . "\n";
+				}
+				echo '	</table>' . "\n";
+				echo '	<table class="adminform user-details" id="table_billto">' . "\n";
+				foreach($this->helper->BTaddress["fields"] as $_field) {
+				if(in_array($_field['name'],$userFields)) {
 				continue;
-			}
-			echo '		<tr>' . "\n";
-		    echo '			<td class="key">' . "\n";
-		    echo '				<label class="' . $_field['name'] . '" for="' . $_field['name'] . '_field">' . "\n";
-		    echo '					' . $_field['title'] . ($_field['required'] ? ' *' : '') . "\n";
-		    echo '				</label>' . "\n";
-		    echo '			</td>' . "\n";
-		    echo '			<td>' . "\n";
-		    if($_field['name']=='zip') {
-		    	$_field['formcode']=str_replace('input','input onchange="update_form();"',$_field['formcode']);
-		    } else if($_field['name']=='virtuemart_country_id') {
-		    	$_field['formcode']=str_replace('<select','<select onchange="update_form();"',$_field['formcode']);
-		    } else if($_field['name']=='virtuemart_state_id') {
-		    	$_field['formcode']=str_replace('<select','<select onchange="update_form();"',$_field['formcode']);
-		    }
-		    echo '				' . $_field['formcode'] . "\n";
-		    echo '			</td>' . "\n";
-		    echo '		</tr>' . "\n";
-		}
-	    echo '	</table>' . "\n";
-	    echo '</div>';
-		?>
-	</div>
-
-	<div class="width60 floatleft" id="div_shipto">
-		<span class="vmicon vm2-shipto-icon none"></span>
-		<div class="output-shipto none">
-		<?php
+				}
+				echo '		<tr>' . "\n";
+					echo '			<td class="key">' . "\n";
+						echo '				<label class="' . $_field['name'] . '" for="' . $_field['name'] . '_field">' . "\n";
+							echo '					' . $_field['title'] . ($_field['required'] ? ' *' : '') . "\n";
+							echo '				</label>' . "\n";
+						echo '			</td>' . "\n";
+					echo '			<td>' . "\n";
+						if($_field['name']=='zip') {
+						$_field['formcode']=str_replace('input','input onchange="update_form();"',$_field['formcode']);
+						} else if($_field['name']=='virtuemart_country_id') {
+						$_field['formcode']=str_replace('<select','<select onchange="update_form();"',$_field['formcode']);
+						} else if($_field['name']=='virtuemart_state_id') {
+						$_field['formcode']=str_replace('<select','<select onchange="update_form();"',$_field['formcode']);
+						}
+						echo '				' . $_field['formcode'] . "\n";
+						echo '			</td>' . "\n";
+					echo '		</tr>' . "\n";
+				}
+				echo '	</table>' . "\n";
+				echo '</div>';
+			?>
+		</div>
+		<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12" id="div_shipto">
+			<span class="vmicon vm2-shipto-icon none"></span>
+			<div class="output-shipto none">
+				<?php
 		if(!empty($this->cart->STaddress['fields'])){
-			if(!class_exists('VmHtml'))require(JPATH_VM_ADMINISTRATOR.DS.'helpers'.DS.'html.php');
+				if(!class_exists('VmHtml'))require(JPATH_VM_ADMINISTRATOR.DS.'helpers'.DS.'html.php');
 				echo JText::_('COM_VIRTUEMART_USER_FORM_ST_SAME_AS_BT');
 				?>
 				<input class="inputbox" type="checkbox" name="STsameAsBT" id="STsameAsBT" <?php echo $params->get('check_shipto_address')==1?'checked="checked"':''; ?> value="1" onclick="set_st(this);"/><br />
 				<?php
 		}
  		?>
-		<div class="clear"></div>
-		</div>
-		<?php if(!isset($this->cart->lists['current_id'])) $this->cart->lists['current_id'] = 0; ?>
-		<?php
+				<div class="clear"></div>
+			</div>
+			<?php if(!isset($this->cart->lists['current_id'])) $this->cart->lists['current_id'] = 0; ?>
+			<?php
 		echo '	<table class="adminform user-details" id="table_shipto" '.($params->get('check_shipto_address')==1?'style="display:none"':'').'>' . "\n";
-		foreach($this->helper->STaddress["fields"] as $_field) {
+			foreach($this->helper->STaddress["fields"] as $_field) {
 			echo '		<tr>' . "\n";
-		    echo '			<td class="key">' . "\n";
-		    echo '				<label class="' . $_field['name'] . '" for="' . $_field['name'] . '_field">' . "\n";
-		    echo '					' . $_field['title'] . ($_field['required'] ? ' *' : '') . "\n";
-		    echo '				</label>' . "\n";
-		    echo '			</td>' . "\n";
-		    echo '			<td>' . "\n";
-		    if($_field['name']=='shipto_zip') {
-		    	$_field['formcode']=str_replace('input','input onchange="update_form();"',$_field['formcode']);
-		    } else if($_field['name']=='shipto_virtuemart_country_id') {
-		    	$_field['formcode']=str_replace('<select','<select onchange="update_form();add_countries();"',$_field['formcode']);
-		    	$_field['formcode']=str_replace('class="virtuemart_country_id','class="shipto_virtuemart_country_id',$_field['formcode']);
-		    } else if($_field['name']=='shipto_virtuemart_state_id') {
-		    	$_field['formcode']=str_replace('id="virtuemart_state_id"','id="shipto_virtuemart_state_id"',$_field['formcode']);
-		    	$_field['formcode']=str_replace('<select','<select onchange="update_form();"',$_field['formcode']);
-		    }
-		    echo '				' . $_field['formcode'] . "\n";
-		    echo '			</td>' . "\n";
-		    echo '		</tr>' . "\n";
-		}
-	    echo '	</table>' . "\n";
-		?>
+			echo '			<td class="key">' . "\n";
+				echo '				<label class="' . $_field['name'] . '" for="' . $_field['name'] . '_field">' . "\n";
+					echo '					' . $_field['title'] . ($_field['required'] ? ' *' : '') . "\n";
+					echo '				</label>' . "\n";
+				echo '			</td>' . "\n";
+			echo '			<td>' . "\n";
+				if($_field['name']=='shipto_zip') {
+				$_field['formcode']=str_replace('input','input onchange="update_form();"',$_field['formcode']);
+				} else if($_field['name']=='shipto_virtuemart_country_id') {
+				$_field['formcode']=str_replace('<select','<select onchange="update_form();add_countries();"',$_field['formcode']);
+				$_field['formcode']=str_replace('class="virtuemart_country_id','class="shipto_virtuemart_country_id',$_field['formcode']);
+				} else if($_field['name']=='shipto_virtuemart_state_id') {
+				$_field['formcode']=str_replace('id="virtuemart_state_id"','id="shipto_virtuemart_state_id"',$_field['formcode']);
+				$_field['formcode']=str_replace('<select','<select onchange="update_form();"',$_field['formcode']);
+				}
+				echo '				' . $_field['formcode'] . "\n";
+				echo '			</td>' . "\n";
+			echo '		</tr>' . "\n";
+			}
+			echo '	</table>' . "\n";
+			?>
 
 
-		<div class="sectiontableentry1">
+			<div class="sectiontableentry1">
 				<div colspan="4" align="left">
 					<?php // echo $this->cart->cartData['shipmentName']; ?>
-					   
+
 					<?php
 					echo JText::_('COM_VIRTUEMART_CART_SELECTSHIPMENT');
 					if(!empty($this->layoutName) && $this->layoutName=='default') {
-						echo "<fieldset id='shipments'>";					
-							foreach($this->helper->shipments_shipment_rates as $rates) {
-									echo str_replace("input",'input onclick="update_form();"',$rates)."<br />";
-							}
-						echo "</fieldset>";
-					} else {
-					    JText::_('COM_VIRTUEMART_CART_SHIPPING');
+					echo "<fieldset id='shipments'>";
+					foreach($this->helper->shipments_shipment_rates as $rates) {
+					echo str_replace("input",'input onclick="update_form();"',$rates)."<br />";
 					}
-                	if ( VmConfig::get('show_tax')) { ?>
-						<div align="right"><?php echo "<span  class='priceColor2' id='shipment_tax'>".$this->currencyDisplay->createPriceDiv('shipmentTax','', $this->cart->pricesUnformatted['shipmentTax'],false)."</span>"; ?> </div>
-                	<?php } ?>
+					echo "</fieldset>";
+					} else {
+					JText::_('COM_VIRTUEMART_CART_SHIPPING');
+					}
+					if ( VmConfig::get('show_tax')) { ?>
+					<div align="right"><?php echo "<span  class='priceColor2' id='shipment_tax'>".$this->currencyDisplay->createPriceDiv('shipmentTax','', $this->cart->pricesUnformatted['shipmentTax'],false)."</span>"; ?> </div>
+					<?php } ?>
 					<div align="right" id="shipment"><?php echo $this->currencyDisplay->createPriceDiv('salesPriceShipment','', $this->cart->pricesUnformatted['salesPriceShipment'],false); ?> </div>
 				</div>
-		</div>
+			</div>
 
-		<div class="sectiontableentry1">
-			<div colspan="4" align="left">
-				<?php 
+			<div class="sectiontableentry1">
+				<div colspan="4" align="left">
+					<?php
 				echo JText::_('COM_VIRTUEMART_CART_SELECTPAYMENT');
-				if(!empty($this->layoutName) && $this->layoutName=='default') { 
+				if(!empty($this->layoutName) && $this->layoutName=='default') {
 					echo "<fieldset id='payments'>";
-						foreach($this->helper->paymentplugins_payments as $payments) {
-							echo str_replace('type="radio"','type="radio" onclick="update_form();"',$payments)."<div></div>";
-						}
+					foreach($this->helper->paymentplugins_payments as $payments) {
+					echo str_replace('type="radio"','type="radio" onclick="update_form();"',$payments)."<div></div>";
+					}
 					echo "</fieldset>";
-				} else {
-					JText::_('COM_VIRTUEMART_CART_PAYMENT'); 
-				}
-				?> </div>
-	            <?php if ( VmConfig::get('show_tax')) { ?>
+					} else {
+					JText::_('COM_VIRTUEMART_CART_PAYMENT');
+					}
+					?> </div>
+				<?php if ( VmConfig::get('show_tax')) { ?>
 				<div align="right"><?php echo "<span  class='priceColor2' id='payment_tax'>".$this->currencyDisplay->createPriceDiv('paymentTax','', $this->cart->pricesUnformatted['paymentTax'],false)."</span>"; ?> </div>
-	            <?php } ?>
+				<?php } ?>
 				<div align="right"><?php //echo "<span  class='priceColor2'>".$this->cart->prices['paymentDiscount']."</span>"; ?></div>
 				<div align="right" id="payment"><?php  echo $this->currencyDisplay->createPriceDiv('salesPricePayment','', $this->cart->pricesUnformatted['salesPricePayment'],false); ?> </div>
 			</div>
 		</div>
+		</div>
+	</div>
+
 	<div class="clear"></div>
 </div>
 

@@ -181,7 +181,7 @@ if (!empty($this->products)) {
         ?>
     </div>
 
-    <div class="width20 floatright">
+    <div class="width40 floatright">
 		<?php echo $this->orderByList['orderby']; ?>
 		<?php echo $this->orderByList['manufacturer']; ?>
 	</div>
@@ -200,7 +200,11 @@ if (!empty($this->products)) {
 </div> <!-- end of orderby-displaynumber -->
 
 <div class="none"><img class="on-product" src="images/candle.png"/></div>
-<h1><?php echo $this->category->category_name; ?></h1>
+<div class="container container-title">
+	<div class="row">
+		<h1 class="products-title col-sx-12"><?php echo $this->category->category_name; ?></h1>
+	</div>
+</div>
 
 	<?php
 	// Category and Columns Counter
@@ -229,8 +233,9 @@ if (!empty($this->products)) {
 		// this is an indicator wether a row needs to be opened or not
 		if ($iBrowseCol == 1) {
 			?>
+<div class="container products-container">
 	<div class="row">
-	<?php
+		<?php
 		}
 
 		// Show the vertical seperator
@@ -242,44 +247,44 @@ if (!empty($this->products)) {
 
 		// Show Products
 		?>
-		<div class="product floatleft<?php echo $Browsecellwidth . $show_vertical_separator ?>">
+		<div class="col col-lg-2 col-md-4 col-sm-6 col-xs-12 product floatleft<?php echo $show_vertical_separator ?>">
 			<div class="spacer">
 				<div class="product-image center">
-				    <a title="<?php echo $product->product_name ?>"  href="<?php echo $product->link; ?>">
+					<a title="<?php echo $product->product_name ?>"  href="<?php echo $product->link; ?>">
 						<?php
 							echo $product->images[0]->displayMediaThumb('class="browseProductImage product-main-image"', false);
 						?>
 						<img class="on-product" src="images/candle.png"/>
-					 </a>
+					</a>
 
 					<!-- The "Average Customer Rating" Part -->
 					<?php // Output: Average Product Rating
 					if ($this->showRating) {
-						$maxrating = VmConfig::get('vm_maximum_rating_scale', 5);
+					$maxrating = VmConfig::get('vm_maximum_rating_scale', 5);
 
-						if (empty($product->rating)) {
-							?>
-							<span class="vote"><?php echo JText::_('COM_VIRTUEMART_RATING') . ' ' . JText::_('COM_VIRTUEMART_UNRATED') ?></span>
-						<?php
+					if (empty($product->rating)) {
+					?>
+					<span class="vote"><?php echo JText::_('COM_VIRTUEMART_RATING') . ' ' . JText::_('COM_VIRTUEMART_UNRATED') ?></span>
+					<?php
 						} else {
 							$ratingwidth = $product->rating * 12; //I don't use round as percetntage with works perfect, as for me
-							?>
+					?>
 							<span class="vote">
                                 <?php echo JText::_('COM_VIRTUEMART_RATING') . ' ' . round($product->rating) . '/' . $maxrating; ?><br/>
                                 <span title=" <?php echo (JText::_("COM_VIRTUEMART_RATING_TITLE") . round($product->rating) . '/' . $maxrating) ?>" class="category-ratingbox" style="display:inline-block;">
                                     <span class="stars-orange" style="width:<?php echo $ratingwidth.'px'; ?>">
                                     </span>
                                 </span>
-                            </span>
-						<?php
+					</span>
+					<?php
 						}
 					}
 					if ( VmConfig::get ('display_stock', 1)) { ?>
-						<!-- 						if (!VmConfig::get('use_as_catalog') and !(VmConfig::get('stockhandle','none')=='none')){?> -->
-						<div class="paddingtop8">
-							<span class="vmicon vm2-<?php echo $product->stock->stock_level ?>" title="<?php echo $product->stock->stock_tip ?>"></span>
-							<span class="stock-level"><?php echo JText::_ ('COM_VIRTUEMART_STOCK_LEVEL_DISPLAY_TITLE_TIP') ?></span>
-						</div>
+					<!-- 						if (!VmConfig::get('use_as_catalog') and !(VmConfig::get('stockhandle','none')=='none')){?> -->
+					<div class="paddingtop8">
+						<span class="vmicon vm2-<?php echo $product->stock->stock_level ?>" title="<?php echo $product->stock->stock_tip ?>"></span>
+						<span class="stock-level"><?php echo JText::_ ('COM_VIRTUEMART_STOCK_LEVEL_DISPLAY_TITLE_TIP') ?></span>
+					</div>
 					<?php } ?>
 				</div>
 
@@ -289,100 +294,100 @@ if (!empty($this->products)) {
 
 					<?php // Product Short Description
 					if (!empty($product->product_s_desc)) {
-						?>
-						<div class="product_s_desc">
-							<?php echo shopFunctionsF::limitStringByWord ($product->product_s_desc, 40, '...') ?>
-						</div>
+					?>
+					<div class="product_s_desc">
+						<?php echo shopFunctionsF::limitStringByWord ($product->product_s_desc, 40, '...') ?>
+					</div>
 					<?php } ?>
 
 					<?php // Product SKU
 						if (!empty($product->product_sku)) {
-						?>
-						<div class="product_sku">
-							<span class="product-prop-title"><?php echo JText::_ ('COM_VIRTUEMART_PRODUCT_SKU') ?>: </span>
-							<?php echo $product->product_sku ?>
-						</div>
+					?>
+					<div class="product_sku">
+						<span class="product-prop-title"><?php echo JText::_ ('COM_VIRTUEMART_PRODUCT_SKU') ?>: </span>
+						<?php echo $product->product_sku ?>
+					</div>
 					<?php } ?>
 
 					<?php
 						if (empty($product->product_lwh_uom)) {
-							$product->product_lwh_uom = "см";
-						}
+					$product->product_lwh_uom = "см";
+					}
 					?>
 
 					<?php // Product Width
 					if (!empty($product->product_width) && $product->product_width != 0) {
-						?>
-						<div class="product_width">
-							<span class="product-prop-title"><?php echo JText::_ ('COM_VIRTUEMART_PRODUCT_WIDTH') ?></span>
-							<?php echo (float)$product->product_width ?>
- 							<?php echo $product->product_lwh_uom ?>
-						</div>
+					?>
+					<div class="product_width">
+						<span class="product-prop-title"><?php echo JText::_ ('COM_VIRTUEMART_PRODUCT_WIDTH') ?></span>
+						<?php echo (float)$product->product_width ?>
+						<?php echo $product->product_lwh_uom ?>
+					</div>
 					<?php } ?>
 
 					<?php // Product Height
 					if (!empty($product->product_height) && $product->product_height != 0) {
-						?>
-						<div class="product_height">
-							<span class="product-prop-title"><?php echo JText::_ ('COM_VIRTUEMART_PRODUCT_HEIGHT') ?></span>
-							<?php echo (float)$product->product_height ?>
-							<?php echo $product->product_lwh_uom ?>
-						</div>
+					?>
+					<div class="product_height">
+						<span class="product-prop-title"><?php echo JText::_ ('COM_VIRTUEMART_PRODUCT_HEIGHT') ?></span>
+						<?php echo (float)$product->product_height ?>
+						<?php echo $product->product_lwh_uom ?>
+					</div>
 					<?php } ?>
 					<?php // Product Weight
 					if (!empty($product->product_weight) && $product->product_weight != 0) {
-						?>
-						<div class="product_weight">
-							<span class="product-prop-title"><?php echo JText::_ ('COM_VIRTUEMART_PRODUCT_BURNING_TIME') ?></span>
-							<?php echo (float)$product->product_weight ?>
-							<?php echo "ч" ?>
-						</div>
+					?>
+					<div class="product_weight">
+						<span class="product-prop-title"><?php echo JText::_ ('COM_VIRTUEMART_PRODUCT_BURNING_TIME') ?></span>
+						<?php echo (float)$product->product_weight ?>
+						<?php echo "ч" ?>
+					</div>
 					<?php } ?>
 
 					<div class="product-price marginbottom12" id="productPrice<?php echo $product->virtuemart_product_id ?>">
 						<?php
 						if ($this->show_prices == '1') {
-							if ($product->prices['salesPrice']<=0 and VmConfig::get ('askprice', 1) and  !$product->images[0]->file_is_downloadable) {
-								echo JText::_ ('COM_VIRTUEMART_PRODUCT_ASKPRICE');
-							}
-							//todo add config settings
-							if ($this->showBasePrice) {
-								echo $this->currency->createPriceDiv ('basePrice', 'COM_VIRTUEMART_PRODUCT_BASEPRICE', $product->prices);
-								echo $this->currency->createPriceDiv ('basePriceVariant', 'COM_VIRTUEMART_PRODUCT_BASEPRICE_VARIANT', $product->prices);
-							}
-							echo $this->currency->createPriceDiv ('variantModification', 'COM_VIRTUEMART_PRODUCT_VARIANT_MOD', $product->prices);
-							if (round($product->prices['basePriceWithTax'],$this->currency->_priceConfig['salesPrice'][1]) != $product->prices['salesPrice']) {
-								echo '<div class="price-crossed" >' . $this->currency->createPriceDiv ('basePriceWithTax', 'COM_VIRTUEMART_PRODUCT_BASEPRICE_WITHTAX', $product->prices) . "</div>";
-							}
-							if (round($product->prices['salesPriceWithDiscount'],$this->currency->_priceConfig['salesPrice'][1]) != $product->prices['salesPrice']) {
-								echo $this->currency->createPriceDiv ('salesPriceWithDiscount', 'COM_VIRTUEMART_PRODUCT_SALESPRICE_WITH_DISCOUNT', $product->prices);
-							}
-							echo $this->currency->createPriceDiv ('salesPrice', 'COM_VIRTUEMART_PRODUCT_SALESPRICE', $product->prices);
-							if ($product->prices['discountedPriceWithoutTax'] != $product->prices['priceWithoutTax']) {
-								echo $this->currency->createPriceDiv ('discountedPriceWithoutTax', 'COM_VIRTUEMART_PRODUCT_SALESPRICE_WITHOUT_TAX', $product->prices);
-							} else {
-								echo $this->currency->createPriceDiv ('priceWithoutTax', 'COM_VIRTUEMART_PRODUCT_SALESPRICE_WITHOUT_TAX', $product->prices);
-							}
-							echo $this->currency->createPriceDiv ('discountAmount', 'COM_VIRTUEMART_PRODUCT_DISCOUNT_AMOUNT', $product->prices);
-							echo $this->currency->createPriceDiv ('taxAmount', 'COM_VIRTUEMART_PRODUCT_TAX_AMOUNT', $product->prices);
-							$unitPriceDescription = JText::sprintf ('COM_VIRTUEMART_PRODUCT_UNITPRICE', $product->product_unit);
-							echo $this->currency->createPriceDiv ('unitPrice', $unitPriceDescription, $product->prices);
+						if ($product->prices['salesPrice']<=0 and VmConfig::get ('askprice', 1) and  !$product->images[0]->file_is_downloadable) {
+						echo JText::_ ('COM_VIRTUEMART_PRODUCT_ASKPRICE');
+						}
+						//todo add config settings
+						if ($this->showBasePrice) {
+						echo $this->currency->createPriceDiv ('basePrice', 'COM_VIRTUEMART_PRODUCT_BASEPRICE', $product->prices);
+						echo $this->currency->createPriceDiv ('basePriceVariant', 'COM_VIRTUEMART_PRODUCT_BASEPRICE_VARIANT', $product->prices);
+						}
+						echo $this->currency->createPriceDiv ('variantModification', 'COM_VIRTUEMART_PRODUCT_VARIANT_MOD', $product->prices);
+						if (round($product->prices['basePriceWithTax'],$this->currency->_priceConfig['salesPrice'][1]) != $product->prices['salesPrice']) {
+						echo '<div class="price-crossed" >' . $this->currency->createPriceDiv ('basePriceWithTax', 'COM_VIRTUEMART_PRODUCT_BASEPRICE_WITHTAX', $product->prices) . "</div>";
+						}
+						if (round($product->prices['salesPriceWithDiscount'],$this->currency->_priceConfig['salesPrice'][1]) != $product->prices['salesPrice']) {
+						echo $this->currency->createPriceDiv ('salesPriceWithDiscount', 'COM_VIRTUEMART_PRODUCT_SALESPRICE_WITH_DISCOUNT', $product->prices);
+						}
+						echo $this->currency->createPriceDiv ('salesPrice', 'COM_VIRTUEMART_PRODUCT_SALESPRICE', $product->prices);
+						if ($product->prices['discountedPriceWithoutTax'] != $product->prices['priceWithoutTax']) {
+						echo $this->currency->createPriceDiv ('discountedPriceWithoutTax', 'COM_VIRTUEMART_PRODUCT_SALESPRICE_WITHOUT_TAX', $product->prices);
+						} else {
+						echo $this->currency->createPriceDiv ('priceWithoutTax', 'COM_VIRTUEMART_PRODUCT_SALESPRICE_WITHOUT_TAX', $product->prices);
+						}
+						echo $this->currency->createPriceDiv ('discountAmount', 'COM_VIRTUEMART_PRODUCT_DISCOUNT_AMOUNT', $product->prices);
+						echo $this->currency->createPriceDiv ('taxAmount', 'COM_VIRTUEMART_PRODUCT_TAX_AMOUNT', $product->prices);
+						$unitPriceDescription = JText::sprintf ('COM_VIRTUEMART_PRODUCT_UNITPRICE', $product->product_unit);
+						echo $this->currency->createPriceDiv ('unitPrice', $unitPriceDescription, $product->prices);
 						} ?>
 
 					</div>
 
 					<?php /* Add to cart button */
 					    $this->product = $product;
-					    echo $this->loadTemplate('addtocart');
-					?> 
+					echo $this->loadTemplate('addtocart');
+					?>
 
-<?php /**-** remove
+					<?php /**-** remove
 					<p>
-						<?php // Product Details Button
+					<?php // Product Details Button
 						echo JHTML::link ($product->link, JText::_ ('COM_VIRTUEMART_PRODUCT_DETAILS'), array('title' => $product->product_name, 'class' => 'product-details'));
-						?>
+					?>
 					</p>
-end remove */?>
+					end remove */?>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -393,8 +398,10 @@ end remove */?>
 		// Do we need to close the current row now?
 		if ($iBrowseCol == $BrowseProducts_per_row || $iBrowseProduct == $BrowseTotalProducts) {
 			?>
-			<div class="clear"></div>
-   </div> <!-- end of row -->
+		<div class="clear"></div>
+	</div> <!-- end of row -->
+</div>
+
 			<?php
 			$iBrowseCol = 1;
 		} else {

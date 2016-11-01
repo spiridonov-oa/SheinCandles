@@ -175,7 +175,7 @@ echo $this->loadTemplate('images');
 		<?php // Product SKU
 		if (!empty($this->product->product_sku)) {
 			?>
-			<div class="product_sku">
+			<div class="ppp product_sku">
 				<span class="product-prop-title"><?php echo JText::_ ('COM_VIRTUEMART_PRODUCT_SKU') ?>: </span>
 				<?php echo $this->product->product_sku ?>
 			</div>

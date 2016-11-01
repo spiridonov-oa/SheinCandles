@@ -38,7 +38,11 @@ $templateparams	= $app->getTemplate(true)->params;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" >
 	<head>
 		<jdoc:include type="head" />
-                <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/maincss.css" type="text/css" />
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/bootstrap/css/bootstrap.min.css" type="text/css" />
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/maincss.css" type="text/css" />
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/system/css/system.css" type="text/css" />
 		
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/print.css" type="text/css" media="Print" />
@@ -60,20 +64,12 @@ $templateparams	= $app->getTemplate(true)->params;
 		<?php if ($this->direction == 'rtl') : ?>
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/template_rtl.css" type="text/css" />
 		<?php endif; */ ?>
-<? /*
+<?php /*
         <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/bootstrap/css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/bootstrap/css/bootstrap-responsive.min.css" type="text/css" />
 
         <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/bootstrap/js/bootstrap.js"></script>
 */?>
-
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</head>
 
 	<body>
@@ -87,16 +83,22 @@ $templateparams	= $app->getTemplate(true)->params;
 			<?php else: ?>
 		<header id="header">
 			<?php endif; ?>
-                            <jdoc:include type="modules" name="position-1" />
-                            <div class="contacts-phones">
-                                <span>Возникли вопросы?</span>
-                                <span> Звоните:</span>
-                                <span style="font-size: 1em; font-weight: bold;">+38 057 750 73 00</span>
-                                <span style="font-size: 1em; font-weight: bold;">+38 098 73 73 300</span>
-                            </div>
-                            <div class="logoheader">				
-                                <img src="<?php echo $this->baseurl ?>/images/logo.png" alt="" />	
-                            </div><!-- end logoheader -->
+					<jdoc:include type="modules" name="position-1" />
+					<div class="contacts-phones">
+						<div class="row">
+							<div class="col-sm-6">
+								<span>Возникли вопросы?</span>
+								<span>Звоните:</span>
+							</div>
+							<div class="col-sm-6">
+								<span style="font-size: 1em; font-weight: bold;">+38 057 750 73 00</span>
+								<span style="font-size: 1em; font-weight: bold;">+38 098 73 73 300</span>
+							</div>
+						</div>
+					</div>
+					<div class="logoheader">
+						<img src="<?php echo $this->baseurl ?>/images/logo.png" alt="" />
+					</div><!-- end logoheader -->
                 </header><!-- end header -->
 		
 		<div id="<?php echo $showRightColumn ? 'contentarea2' : 'contentarea'; ?>">
