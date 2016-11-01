@@ -372,8 +372,10 @@ if (!empty($this->products)) {
 					</div>
 
 					<?php /* Add to cart button */
-					    $this->product = $product;
-					    echo $this->loadTemplate('addtocart');
+					if ($this->show_prices == '1') {
+						$this->product = $product;
+						echo $this->loadTemplate('addtocart');
+					}
 					?> 
 
 <?php /**-** remove
