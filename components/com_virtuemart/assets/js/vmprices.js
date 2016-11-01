@@ -73,7 +73,7 @@ if(typeof Virtuemart === "undefined")
                         var txt = "<H4>"+vmCartError+"</H4>"+datas.msg;
                     }
                     if(usefancy){
-                        $.fancybox({
+                        var messageBox = $.fancybox({
                                 "titlePosition" : 	"inside",
                                 "transitionIn"	:	"fade",
                                 "transitionOut"	:	"fade",
@@ -85,6 +85,10 @@ if(typeof Virtuemart === "undefined")
                                 "content"       :   txt
                             }
                         );
+						console.log(messageBox);
+						setTimeout(function () {
+							$.fancybox.close();
+						}, 2000);
                     } else {
                         $.facebox.settings.closeImage = closeImage;
                         $.facebox.settings.loadingImage = loadingImage;
