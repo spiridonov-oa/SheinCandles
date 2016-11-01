@@ -93,7 +93,6 @@ $templateparams	= $app->getTemplate(true)->params;
                                 <span> Звоните:</span>
                                 <span style="font-size: 1em; font-weight: bold;">+38 057 750 73 00</span>
                                 <span style="font-size: 1em; font-weight: bold;">+38 098 73 73 300</span>
-                                <span style="font-size: 1em; font-weight: bold;">+38 050 36 73 300</span>
                             </div>
                             <div class="logoheader">				
                                 <img src="<?php echo $this->baseurl ?>/images/logo.png" alt="" />	
