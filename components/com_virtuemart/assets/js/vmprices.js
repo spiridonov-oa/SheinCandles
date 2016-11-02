@@ -62,9 +62,9 @@ if(typeof Virtuemart === "undefined")
                     $.fancybox.showLoading();
                 }
 
-                $.getJSON(vmSiteurl+'index.php?option=com_virtuemart&nosef=1&view=cart&task=addJS&format=json'+vmLang,datas,
+                $.getJSON(vmSiteurl+'index.php?option=com_virtuemart&nosef=1&view=cart&task=addJS&format=json'+vmLang, datas,
                 function(datas, textStatus) {
-                    if(datas.stat ==1){
+                    if(datas.stat == 1){
 
                         var txt = datas.msg;
                     } else if(datas.stat ==2){
@@ -85,7 +85,6 @@ if(typeof Virtuemart === "undefined")
                                 "content"       :   txt
                             }
                         );
-						console.log(messageBox);
 						setTimeout(function () {
 							$.fancybox.close();
 						}, 2000);
