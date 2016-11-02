@@ -162,13 +162,13 @@ if (empty($this->product)) {
     <div>
 		<div class="container products-container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-6">
+				<div class="col-xs-12 col-sm-6 col-md-5">
 					<?php
 		echo $this->loadTemplate('images');
 					?>
 				</div>
 
-				<div class="col-xs-12 col-sm-6">
+				<div class="col-xs-12 col-sm-6 col-md-7">
 					<div class="spacer-buy-area">
 
 						<?php
