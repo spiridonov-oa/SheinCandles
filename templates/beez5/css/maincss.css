@@ -458,43 +458,32 @@ em {
 /* ##########################  header content  ########################### */
 
 #header ul.menu {
-    font-size: 16px;
-    display: block;
-    text-align: center;
-    list-style-type: none;
     padding: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    z-index: 5;
-    background: #fff;
-
-    -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 #header ul.menu li {
     border-top: 3px solid transparent;
-    display: inline-block;
-    padding: 5px 15px 8px;
 
-    -webkit-transition: top 0.3s ease-out;
-    -moz-transition: top 0.3s ease-out;
-    -o-transition: top 0.3s ease-out;
-    transition: top 0.3s ease-out;
+    -webkit-transition:  0.3s ease-out;
+    -moz-transition:  0.3s ease-out;
+    -o-transition:  0.3s ease-out;
+    transition:  0.3s ease-out;
 }
 
 #header ul.menu li:hover, #header ul.menu li.active {
-    border-top: 3px solid #842DC0;
+    border-color: #842DC0;
+}
+
+#header ul li.active a {
+    background: transparent;
 }
 
 #header ul li a {
-    padding: 5px;
     display: block;
+    padding: 12px 15px 15px;
     color: #666;
-    line-height: 1.5em;
+    line-height: 20px;
     text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
 }
 
@@ -508,6 +497,35 @@ em {
 
 #header ul.menu li a:hover {
     color: #666;
+}
+
+#header .navbar {
+    border: 0;
+    background: #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+#header .navbar-brand{
+    width: 150px;
+}
+
+@media screen and (max-width: 767px) {
+    #header ul.menu li {
+        border-top: 0;
+        border-left: 3px solid transparent;
+
+        -webkit-transition:  0.3s ease-out;
+        -moz-transition:  0.3s ease-out;
+        -o-transition:  0.3s ease-out;
+        transition:  0.3s ease-out;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #header ul li a {
+        font-size: 0.9em;
+        padding: 12px 8px 15px;
+    }
 }
 
 /* ##########################  breadcrumbs  ########################### */
@@ -2366,15 +2384,14 @@ a:focus {
     width: 95%;
     max-width: 100%;
     margin: 0 auto;
-    height: 190px;
-    padding-top: 60px;
+    padding: 2% 0;
     position: relative;
 }
 
 .logoheader img {
     width: 100%;
+    margin-top: 60px;
     max-width: 100%;
-    position: absolute;
     bottom: 0;
 }
 
@@ -2383,7 +2400,7 @@ a:focus {
         width: auto;
         max-width: none;
         display: block;
-        margin: 0 auto;
+        margin: 60px auto 0;
         position: relative;
     }
 }
@@ -2878,6 +2895,8 @@ a img.calendar {
     padding: 5px;
     margin: 5px;
     min-height: 0;
+    background: #fff;
+
     -webkit-box-shadow: 1px 2px 4px 0px rgba(212, 212, 212, 0.8);
     -moz-box-shadow: 1px 2px 4px 0px rgba(212, 212, 212, 0.8);
     box-shadow: 1px 2px 4px 0px rgba(212, 212, 212, 0.8);
@@ -2980,8 +2999,9 @@ a img.calendar {
 .product-description .addtocart-button {
     width: auto;
     position: absolute;
-    left: 25px;
-    right: 25px;
+    left: 67px;
+    height: 50px;
+    right: 0;
 }
 
 .spacer:hover .buy-btn {
@@ -3014,15 +3034,17 @@ a img.calendar {
 
 /* Add to cart button */
 span.addtocart-button input.addtocart-button, span.addtocart-button input.notify-button {
+    width: 100%;
+    position: relative;
+    left: 0;
     border: 1px solid #00a000;
     border-radius: 0;
     background: #00a000;
-    padding: 0px 15px;
-    width: 100%;
-    height: 34px;
-    line-height: 34px;
-    display: inline-block;
-    vertical-align: middle;
+    padding: 0 15px;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    display: block;
 }
 
 span.addtocart-button input.addtocart-button:focus,
@@ -3037,8 +3059,9 @@ span.addtocart-button {
 }
 
 span.quantity-controls {
+    width: 25px;
     padding: 0;
-    margin: 0 0 0 6px;
+    margin: 0 0 0 1px;
 }
 
 span.quantity-controls div.quantity-plus {
@@ -3050,15 +3073,14 @@ div.quantity-controls:before {
     top: 0;
     left: 0;
     text-align: center;
-    line-height: 15px;
-    font-size: 14px;
+    line-height: 25px;
+    font-size: 18px;
     color: #fff;
-    height: 17px;
-    width: 17px;
+    height: 25px;
+    width: 25px;
 }
 
 span.quantity-controls div.quantity-plus:before {
-    line-height: 19px;
     content: "+";
 }
 
@@ -3068,24 +3090,27 @@ span.quantity-controls div.quantity-minus:before {
 
 span.quantity-controls div.quantity-controls {
     position: relative;
-    height: 17px;
+    height: 25px;
     border: none;
-    width: 17px;
+    width: 25px;
     color: #fff;
     background: #0D830D;
 }
 
 span.quantity-box {
     padding: 0;
+    width: 40px;
 }
 
 input.quantity-input {
     border-radius: 0;
-    height: 34px;
-    width: 28px;
+    height: 50px;
+    width: 40px;
 }
 
-input.quantity-input:focus {
+span.quantity-box input.quantity-input:hover,
+span.quantity-box input.quantity-input:focus {
+    background: #eee;
     outline: none;
 }
 
@@ -3093,7 +3118,7 @@ input.quantity-input:focus {
 
 #vmCartModule {
     position: fixed;
-    top: 0;
+    top: 50px;
     right: 0;
     z-index: 6;
     font-size: 10px;
@@ -3135,8 +3160,8 @@ input.quantity-input:focus {
     right: 0;
 }
 
-#fancybox-content .continue,
-#fancybox-content .showcart {
+.fancybox-inner .continue,
+.fancybox-inner .showcart {
     display: block;
     float: none;
     width: 180px;
@@ -3145,8 +3170,8 @@ input.quantity-input:focus {
     background: #eee;
 }
 
-#fancybox-content .continue:hover,
-#fancybox-content .showcart:hover {
+.fancybox-inner .continue:hover,
+.fancybox-inner .showcart:hover {
     background: #D7F5EB;
 }
 
