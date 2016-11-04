@@ -565,6 +565,25 @@ em {
 
 }
 
+@media screen and (max-width: 767px) {
+    .orderby-displaynumber {
+        background: #fff;
+    }
+}
+
+.breadcrumbs {
+    line-height: 25px;
+    padding: 5px 0;
+}
+
+.breadcrumbs img {
+    margin-bottom: 4px;
+}
+
+.breadcrumbs span, .breadcrumbs a {
+    white-space: nowrap;
+}
+
 /* ##########################  navigation column  ########################### */
 
 #nav ul {
@@ -2396,6 +2415,10 @@ a:focus {
 }
 
 @media screen and (min-width: 768px) {
+    #smoke {
+        top: -100px;
+    }
+
     .logoheader img {
         width: auto;
         max-width: none;
@@ -2982,7 +3005,7 @@ a img.calendar {
 
 #main .browse-view .spacer .product-description h2 {
     padding: 10px 0;
-    min-height: 38px;
+    min-height: 50px;
     margin: 0;
 }
 
@@ -3130,8 +3153,8 @@ span.quantity-box input.quantity-input:focus {
 }
 
 #vmCartModule .show_cart a {
-    font-size: 16px;
-    padding: 14px 24px;
+    font-size: 26px;
+    padding: 8px 13px 5px;
     text-decoration: none;
     color: #fff;
 }
@@ -3214,6 +3237,7 @@ span.quantity-box input.quantity-input:focus {
 .cart-view h2 {
     margin-right: 15px;
     margin-left: 15px;
+    padding: 15px 0;
 }
 
 .cart-view #div_shipto fieldset {
@@ -3302,12 +3326,20 @@ span.quantity-box input.quantity-input:focus {
     }
 }
 
+@media (min-width: 450px) and (max-width: 767px) {
+    .product.col {
+        width: 50%;
+        max-width: 50%;
+    }
+}
+
 .productdetails-view .icons {
     display: none;
 }
 
 .orderlistcontainer {
     position: relative;
+    padding: 0;
 }
 
 .orderlistcontainer .title {
@@ -3317,18 +3349,21 @@ span.quantity-box input.quantity-input:focus {
 .orderlistcontainer div.activeOrder {
     display: inline-block;
     margin: 0 0 0 10px;
-    background: #FFF top right no-repeat url(../images/vmgeneral/arrow_down.png);
     cursor: pointer;
     border: solid #CAC9C9 1px;
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     font-size: 12px;
-    padding: 2px 24px 2px 12px;
+    padding: 8px 25px 8px 12px;
 }
 
 .orderlistcontainer div.orderlist {
     right: 0;
+}
+
+.orderlistcontainer div.orderlist a {
+    padding: 5px 10px;
 }
 
 .product-description h2 a {

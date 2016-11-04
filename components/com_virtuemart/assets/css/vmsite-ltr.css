@@ -58,7 +58,7 @@ span.addtocart-button input.addtocart-button-disabled {width:auto;background:#f2
 .category-view .row .category .spacer h2 a img{margin-top:6px;max-width:100%;height:auto;}
 .featured-view h4,.latest-view h4,.topten-view h4,.recent-view h4,.related-products-view h4{font-size:14px;margin:0 0 8px;padding:0;}
 .browse-view h1{font-size:16px;margin:0 0 8px;padding:0;}
-.orderby-displaynumber{border-bottom:solid #E9E8E8 1px;border-top:solid #E9E8E8 1px;margin:10px 0;padding:10px 0;}
+.orderby-displaynumber{border-bottom:solid rgba(0,0,0,0.1) 1px;border-top:solid rgba(0,0,0,0.1) 1px;margin:10px 0;padding:5px 0;}
 .orderlistcontainer{font-size:12px;display:inline-block;text-decoration:none;margin:0 15px 0 0;}
 .orderlistcontainer div.activeOrder{background:#FFF top right no-repeat url(../images/vmgeneral/arrow_down.png);cursor:pointer;border:solid #CAC9C9 1px;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;font-size:12px;padding:2px 24px 1px 12px;}
 .orderlistcontainer a{text-decoration:none;display:block;}

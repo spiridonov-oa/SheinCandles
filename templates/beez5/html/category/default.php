@@ -170,8 +170,8 @@ if (!empty($this->keyword)) {
 <?php // Show child categories
 if (!empty($this->products)) {
 	?>
-<div class="orderby-displaynumber">
-	<div class="width80 floatleft">
+<div class="orderby-displaynumber row">
+	<div class="col-sm-7">
         <?php //**-** Вызов модуля position-2 который выводит Хлебные крохи для страницы товаров
             $document   = & JFactory::getDocument();
             $renderer   = $document->loadRenderer('modules');
@@ -181,7 +181,7 @@ if (!empty($this->products)) {
         ?>
     </div>
 
-    <div class="width20 floatright">
+    <div class="col-sm-5">
 		<?php echo $this->orderByList['orderby']; ?>
 		<?php echo $this->orderByList['manufacturer']; ?>
 	</div>

@@ -53,7 +53,7 @@ if (empty($this->product)) {
 
 <div class="productdetails-view productdetails">
 
-	<div class="orderby-displaynumber">
+	<div class="orderby-displaynumber ">
 		<div class="">
 	        <?php //**-** Вызов модуля position-2 который выводит Хлебные крохи для страницы товаров
 	            $document   = & JFactory::getDocument();

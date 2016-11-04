@@ -125,8 +125,8 @@ $templateparams	= $app->getTemplate(true)->params;
 								<span>Звоните:</span>
 							</div>
 							<div class="col-sm-6">
-								<span style="font-size: 1em; font-weight: bold;">+38 057 750 73 00</span>
-								<span style="font-size: 1em; font-weight: bold;">+38 098 73 73 300</span>
+								<a href="tel:+380577507300" style="font-size: 1em; font-weight: bold;">+38 057 750 73 00</a>&nbsp;&nbsp;
+								<a href="tel:+380987373300" style="font-size: 1em; font-weight: bold;">+38 098 73 73 300</a>
 							</div>
 						</div>
 					</div>

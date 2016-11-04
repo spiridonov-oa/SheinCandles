@@ -170,18 +170,18 @@ if (!empty($this->keyword)) {
 <?php // Show child categories
 if (!empty($this->products)) {
 	?>
-<div class="orderby-displaynumber">
-	<div class="width80 floatleft">
-        <?php //**-** Вызов модуля position-2 который выводит Хлебные крохи для страницы товаров
-            $document   = & JFactory::getDocument();
-            $renderer   = $document->loadRenderer('modules');
-            $options    = array('style' => 'xhtml');
-            $position   = 'position-2';
-            echo $renderer->render($position, $options, null);
-        ?>
-    </div>
+<div class="orderby-displaynumber row">
+	<div class="col-sm-7">
+		<?php //**-** Вызов модуля position-2 который выводит Хлебные крохи для страницы товаров
+		$document   = & JFactory::getDocument();
+		$renderer   = $document->loadRenderer('modules');
+		$options    = array('style' => 'xhtml');
+		$position   = 'position-2';
+		echo $renderer->render($position, $options, null);
+		?>
+	</div>
 
-    <div class="width40 floatright">
+	<div class="col-sm-5">
 		<?php echo $this->orderByList['orderby']; ?>
 		<?php echo $this->orderByList['manufacturer']; ?>
 	</div>
@@ -247,7 +247,7 @@ if (!empty($this->products)) {
 
 		// Show Products
 		?>
-		<div class="col col-lg-2 col-md-4 col-sm-6 col-xs-12 product floatleft<?php echo $show_vertical_separator ?>">
+		<div class="col col-lg-2 col-md-4 col-sm-6 product floatleft<?php echo $show_vertical_separator ?>">
 			<div class="spacer">
 				<div class="product-image center">
 					<a title="<?php echo $product->product_name ?>"  href="<?php echo $product->link; ?>">
