@@ -57,7 +57,7 @@ if (false && $data->dataValidated == true) {
 }
 $useSSL = VmConfig::get('useSSL',0);
 $useXHTML = true;
-$data->cart_show = '<a style ="float:right;" href="'.JRoute::_("index.php?option=com_virtuemart&view=cart".$taskRoute,$useXHTML,$useSSL).'">'.$linkName.'</a>';
+$data->cart_show = '<a style ="float:right;" href="'.JRoute::_("index.php?option=com_virtuemart&view=cart".$taskRoute,$useXHTML,$useSSL).'"><span class="glyphicon glyphicon-shopping-cart"></span>'./*$linkName.*/'</a>';
 $data->billTotal = $lang->_('COM_VIRTUEMART_CART_TOTAL').' : <strong>'. $data->billTotal .'</strong>';
 
 //vmJsApi::jPrice();
