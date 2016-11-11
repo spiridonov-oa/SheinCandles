@@ -3148,11 +3148,8 @@ span.quantity-box input.quantity-input:focus {
     background: #842DC0;
 }
 
-#vmCartModule .show_cart {
-    transition: 1s;
-}
-
 #vmCartModule .show_cart a {
+    display: block;
     font-size: 26px;
     padding: 8px 13px 5px;
     text-decoration: none;
