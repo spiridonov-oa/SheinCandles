@@ -164,7 +164,7 @@ if (empty($this->product)) {
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-5">
 					<?php
-		echo $this->loadTemplate('images');
+					echo $this->loadTemplate('images');
 					?>
 				</div>
 

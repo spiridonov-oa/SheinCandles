@@ -149,6 +149,8 @@ class JDocumentRendererHead extends JDocumentRenderer
 		}
 
 		// Generate script file links
+		$buffer .= $tab . '<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script><script>$.noConflict();</script>';
+
 		foreach ($document->_scripts as $strSrc => $strAttr)
 		{
 			$buffer .= $tab . '<script src="' . $strSrc . '"';

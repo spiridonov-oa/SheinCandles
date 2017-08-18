@@ -110,7 +110,7 @@ if (!class_exists ('vmPSPlugin')) {
 		$dbValues['tax_id'] = $method->tax_id;
 		$this->storePSPluginInternalData ($dbValues);
 
-		$html = '<table class="vmorder-done">' . "\n";
+		$html = '<div class="container vmorder-done">' . "\n";
 		$html .= $this->getHtmlRow ('STANDARD_PAYMENT_INFO', $dbValues['payment_name'], 'class="vmorder-done-payinfo"');
 		if (!empty($payment_info)) {
 			$lang = JFactory::getLanguage ();
@@ -134,7 +134,7 @@ if (!class_exists ('vmPSPlugin')) {
 
 		//$html .= $this->getHtmlRow('STANDARD_INFO', $method->payment_info);
 		//$html .= $this->getHtmlRow('STANDARD_AMOUNT', $totalInPaymentCurrency.' '.$currency_code_3);
-		$html .= '</table>' . "\n";
+		$html .= '</div>' . "\n";
 
 		$modelOrder = VmModel::getModel ('orders');
 		$order['order_status'] = $this->getNewStatus ($method);

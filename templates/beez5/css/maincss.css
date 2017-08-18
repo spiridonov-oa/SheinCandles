@@ -436,9 +436,7 @@ h4 {
 }
 
 fieldset {
-    margin: 10px 0;
     padding: 15px 0px;
-    border: solid 1px
 }
 
 p {
@@ -1611,7 +1609,7 @@ legend.element-invisible {
 
 @media screen and (max-width: 767px) {
     #footer-outer {
-        margin-bottom: 100px;
+        margin-bottom: 66px;
     }
 }
 
@@ -2414,11 +2412,14 @@ a:focus {
     bottom: 0;
 }
 
-@media screen and (min-width: 768px) {
+
+
+@media screen and (max-width: 768px) {
     #smoke {
         top: -100px;
     }
-
+}
+@media screen and (min-width: 768px) {
     .logoheader img {
         width: auto;
         max-width: none;
@@ -2592,7 +2593,7 @@ a:focus {
     width: 100%;
     bottom: 0;
     right: 0;
-    padding: 10px;
+    padding: 2px;
     text-align: center;
     font-size: 1.2em;
     background: rgba(255, 255, 255, 0.95);
@@ -3231,6 +3232,22 @@ span.quantity-box input.quantity-input:focus {
     padding-left: 0;
 }
 
+.cart-view #payments input {
+    float: left;
+}
+
+.cart-view #payments label {
+    display: block;
+    margin-left: 20px;
+}
+
+
+@media screen and (max-width: 991px) {
+    .cart-view td.key {
+        width: 105px;
+    }
+}
+
 .cart-view h2 {
     margin-right: 15px;
     margin-left: 15px;
@@ -3239,7 +3256,7 @@ span.quantity-box input.quantity-input:focus {
 
 .cart-view #div_shipto fieldset {
     border: 0;
-    margin: 0 0 15px;
+    margin: 0;
     clear: both;
 }
 
@@ -3257,7 +3274,14 @@ span.quantity-box input.quantity-input:focus {
     }
 }
 
-
+.cart-view .cart-summary .row {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+.cart-view .cart-summary .header-row {
+    background: #eee;
+}
 
 .cart-view .vmpayment_description {
     display: none;
@@ -3279,24 +3303,19 @@ span.quantity-box input.quantity-input:focus {
 }
 
 .cart-view #cart-contents {
-    padding: 0 0 7px 0;
-    border: 1px solid #999;
+    padding: 0;
+    border: none;
 }
 
-.cart-view #cart-contents table.cart-summary tr {
-    border-bottom: 1px solid #999;
+.checkout-button-top {
+    border-top: none;
 }
-
-.cart-view #cart-contents table.cart-summary tr:last-child {
-    border-bottom: none;
-}
-
 .vmorder-done td.vmorder-done-payinfo {
     width: 135px;
 }
 
 .vmorder-done {
-    width: 700px;
+    max-width: 700px;
 }
 
 .vmorder-done td {

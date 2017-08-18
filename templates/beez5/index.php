@@ -37,16 +37,6 @@ $templateparams	= $app->getTemplate(true)->params;
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" >
 	<head>
-		<script
-			src="https://code.jquery.com/jquery-2.2.4.js"
-			integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-			crossorigin="anonymous">
-
-		</script>
-		<script>
-			$.noConflict();
-		</script>
-
 		<jdoc:include type="head" />
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
