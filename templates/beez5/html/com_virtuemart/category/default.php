@@ -216,11 +216,10 @@ if (VmConfig::get('showCategory', 1) and empty($this->keyword)) {
                 <div class="col col-lg-2 col-md-4 col-sm-6 product pull-left">
                     <div class="spacer">
                         <div class="product-image center">
-                            <a title="<?php echo $product->product_name ?>" href="<?php echo $product->link; ?>">
-                                <img class="browseProductImage product-main-image"
-                                     src="<?php echo $product->images[0]->file_url ?>"
-                                     alt="<?php echo $product->images[0]->title ?>"/>
-                                <div class="hide hidden"> <?php echo print_r($product->images[0]); ?> </div>
+                            <a title="<?php echo $product->product_name ?>"  href="<?php echo $product->link; ?>">
+                                <?php
+                                echo $product->images[0]->displayMediaThumb('class="browseProductImage product-main-image"', false);
+                                ?>
                                 <img class="on-product" src="images/candle.png"/>
                             </a>
 
